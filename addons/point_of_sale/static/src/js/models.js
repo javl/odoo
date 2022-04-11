@@ -957,7 +957,7 @@ exports.PosModel = Backbone.Model.extend({
                     'limit': this.env.pos.config.limited_products_amount
                 },
                 context: { ...this.session.user_context, ...product_model.context() },
-            });
+            }, { shadow: true });
             product_model.loaded(this, products);
             page += 1;
         } while(products.length == this.config.limited_products_amount);
@@ -976,7 +976,7 @@ exports.PosModel = Backbone.Model.extend({
                     offset: this.env.pos.config.limited_partners_amount * i
                 },
                 context: this.env.session.user_context,
-            });
+            }, { shadow: true });
             this.env.pos.db.add_partners(PartnerIds);
             i += 1;
         } while(PartnerIds.length);
@@ -1561,13 +1561,15 @@ exports.PosModel = Backbone.Model.extend({
      * Make the products corresponding to the given ids to be available_in_pos and
      * fetch them to be added on the loaded products.
      */
-    async _addProducts(ids){
-        await this.rpc({
-            model: 'product.product',
-            method: 'write',
-            args: [ids, {'available_in_pos': true}],
-            context: this.session.user_context,
-        });
+    async _addProducts(ids, setAvailable=true){
+        if(setAvailable){
+            await this.rpc({
+                model: 'product.product',
+                method: 'write',
+                args: [ids, {'available_in_pos': true}],
+                context: this.session.user_context,
+            });
+        }
         let product_model = _.find(this.models, (model) => model.model === 'product.product');
         let product = await this.rpc({
             model: 'product.product',
@@ -1741,8 +1743,8 @@ exports.Product = Backbone.Model.extend({
             return (! item.product_tmpl_id || item.product_tmpl_id[0] === self.product_tmpl_id) &&
                    (! item.product_id || item.product_id[0] === self.id) &&
                    (! item.categ_id || _.contains(category_ids, item.categ_id[0])) &&
-                   (! item.date_start || moment(item.date_start).isSameOrBefore(date)) &&
-                   (! item.date_end || moment(item.date_end).isSameOrAfter(date));
+                   (! item.date_start || moment.utc(item.date_start).isSameOrBefore(date)) &&
+                   (! item.date_end || moment.utc(item.date_end).isSameOrAfter(date));
         });
 
         var price = self.lst_price;
