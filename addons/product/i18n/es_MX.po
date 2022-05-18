@@ -1517,7 +1517,7 @@ msgid ""
 "receipt of the products in your warehouse. Used by the scheduler for "
 "automatic computation of the purchase order planning."
 msgstr ""
-"Tiempo de espera en días entre la confirmación del pedido de compra y la "
+"Tiempo de espera en días entre la confirmación de la orden de compra y la "
 "recepción de los productos en su almacén. El planificador usa esta "
 "información para calcular automáticamente la planeación de la orden de "
 "compra."
@@ -2684,6 +2684,12 @@ msgid "The product template is archived so no combination is possible."
 msgstr ""
 "La plantilla del producto está archivado de modo que no es posible ninguna "
 "combinación."
+
+#. module: product
+#: code:addons/product/models/product.py:0
+#, python-format
+msgid "The product variant must be a variant of the product template."
+msgstr ""
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_supplierinfo__min_qty

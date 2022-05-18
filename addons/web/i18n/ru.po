@@ -12,7 +12,6 @@
 # Oleg Kuryan <oleg@ventor.tech>, 2021
 # sorin Rusu <to.rusu.sorin@gmail.com>, 2021
 # Максим Дронь <dronmax@gmail.com>, 2021
-# Martin Trigaux, 2021
 # Collex100, 2021
 # Андрей Гусев <gaussgss@gmail.com>, 2021
 # Ivan Kropotkin <yelizariev@itpp.dev>, 2021
@@ -23,6 +22,8 @@
 # Sergo S, 2021
 # Irina Fedulova <istartlin@gmail.com>, 2021
 # ILMIR <karamov@it-projects.info>, 2022
+# Martin Trigaux, 2022
+# Валерий Хохлов, 2022
 # Сергей Шебанин <sergey@shebanin.ru>, 2022
 # 
 msgid ""
@@ -436,6 +437,13 @@ msgstr "Доступ ко всем Enterprise приложениям"
 #. openerp-web
 #: code:addons/web/static/src/legacy/xml/base.xml:0
 #, python-format
+msgid "Action"
+msgstr "Действие"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/legacy/xml/base.xml:0
+#, python-format
 msgid "Action ID:"
 msgstr "ID действия:"
 
@@ -578,6 +586,13 @@ msgstr "Пометить"
 #, python-format
 msgid "Add to Favorites"
 msgstr "Добавить в избранное"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/legacy/xml/base.xml:0
+#, python-format
+msgid "Additional actions"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -1593,7 +1608,7 @@ msgstr "Отменить изменение записи"
 #: code:addons/web/static/src/legacy/xml/base.xml:0
 #, python-format
 msgid "Discard record"
-msgstr ""
+msgstr "Отменить"
 
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__display_name
@@ -2349,7 +2364,7 @@ msgstr ""
 #: code:addons/web/static/src/core/debug/debug_menu_items.js:0
 #, python-format
 msgid "Leave the Developer Tools"
-msgstr "Закрыть Инструменты разработчика"
+msgstr "Выключить режим разработки"
 
 #. module: web
 #. openerp-web
@@ -3431,6 +3446,13 @@ msgstr "Печать"
 
 #. module: web
 #. openerp-web
+#: code:addons/web/static/src/legacy/xml/report.xml:0
+#, python-format
+msgid "Printing options"
+msgstr ""
+
+#. module: web
+#. openerp-web
 #: code:addons/web/static/src/legacy/js/fields/basic_fields.js:0
 #, python-format
 msgid "Priority"
@@ -3803,7 +3825,7 @@ msgstr "Сохранить значения по умолчанию"
 #: code:addons/web/static/src/legacy/xml/base.xml:0
 #, python-format
 msgid "Save record"
-msgstr ""
+msgstr "Сохранить"
 
 #. module: web
 #. openerp-web
