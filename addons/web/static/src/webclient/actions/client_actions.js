@@ -17,7 +17,10 @@ export const displayNotificationAction = (env, action) => {
         messageIsHtml: true,
     };
     let links = (params.links || []).map((link) => {
-        return `<a href="${escape(link.url)}" target="_blank">${escape(link.label)}</a>`;
+        if (!('target' in link)) {
+            link.target = '_blank';
+        }
+        return `<a href="${escape(link.url)}" target="${escape(link.target)}">${escape(link.label)}</a>`;
     });
     const message = sprintf(escape(params.message), ...links);
     env.services.notification.add(message, options);
